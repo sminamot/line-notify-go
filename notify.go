@@ -21,6 +21,10 @@ func (l *Line) SetToken(t string) {
 	l.token = t
 }
 
+func (l *Line) NotifyWithNewLine(m string) error {
+	return l.Notify("\n" + m)
+}
+
 func (l *Line) Notify(m string) error {
 	if l.token == "" {
 		return fmt.Errorf("must set token with SetToken()")
